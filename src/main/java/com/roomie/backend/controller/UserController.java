@@ -1,19 +1,12 @@
 package com.roomie.backend.controller;
 
 import com.roomie.backend.controller.dto.UserProfileDto;
-import com.roomie.backend.controller.dto.UserRegisterDto;
 import com.roomie.backend.controller.dto.UserShortDto;
-import com.roomie.backend.entity.User;
-import com.roomie.backend.exception.UserAlreadyExistsException;
-import com.roomie.backend.exception.UserNotFoundException;
-import com.roomie.backend.mapper.UserMapper;
 import com.roomie.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,10 +19,10 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/register")
-    public UserProfileDto createUser(@RequestBody UserRegisterDto userRegisterDto){
-        return userService.createUser(userRegisterDto);
-    }
+//    @PostMapping("/register")
+//    public UserProfileDto createUser(@RequestBody UserRegisterDto userRegisterDto){
+//        return userService.createUser(userRegisterDto);
+//    }
 
     @PutMapping("/update/id={id}")
     public UserProfileDto updateUser(@PathVariable Long id, @RequestBody UserProfileDto newUserInfo) {

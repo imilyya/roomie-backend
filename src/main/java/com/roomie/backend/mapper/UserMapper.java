@@ -1,23 +1,14 @@
 package com.roomie.backend.mapper;
 
 import com.roomie.backend.controller.dto.UserProfileDto;
-import com.roomie.backend.controller.dto.UserRegisterDto;
 import com.roomie.backend.controller.dto.UserShortDto;
-import com.roomie.backend.entity.User;
+import com.roomie.backend.controller.dto.request.RegisterRequest;
+import com.roomie.backend.model.User;
 import lombok.experimental.UtilityClass;
 
 
 @UtilityClass
 public class UserMapper {
-    public User toUserEntity(UserRegisterDto userRegisterDto) {
-        User user = User.builder()
-                .name(userRegisterDto.getName())
-                .email(userRegisterDto.getEmail())
-                .password(userRegisterDto.getPassword())
-                .build();
-
-        return user;
-    }
 
     public UserShortDto toUserShortDto(User user) {
         return UserShortDto.builder()
@@ -35,6 +26,13 @@ public class UserMapper {
                 .gender(user.getGender())
                 .email(user.getEmail())
                 .photoUrl(user.getPhotoUrl())
+                .build();
+    }
+
+    public User toUserEntity(RegisterRequest userRegisterDto) {
+        return User.builder()
+                .name(userRegisterDto.getName())
+                .email(userRegisterDto.getEmail())
                 .build();
     }
 }

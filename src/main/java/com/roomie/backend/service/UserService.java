@@ -1,16 +1,15 @@
 package com.roomie.backend.service;
 
 import com.roomie.backend.controller.dto.UserProfileDto;
-import com.roomie.backend.controller.dto.UserRegisterDto;
 import com.roomie.backend.controller.dto.UserShortDto;
-import com.roomie.backend.entity.User;
+import com.roomie.backend.controller.dto.request.RegisterRequest;
 
 import java.util.List;
 
 public interface UserService {
     List<UserShortDto> getAllUsers();
 
-    UserProfileDto createUser(UserRegisterDto userRegisterDto);
+//    UserProfileDto createUser(RegisterRequest userRegisterDto);
 
     UserProfileDto updateUser(Long id, UserProfileDto newUserInfo);
 

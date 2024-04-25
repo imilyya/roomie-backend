@@ -1,11 +1,11 @@
 package com.roomie.backend.service.impl;
 
 import com.roomie.backend.controller.dto.UserProfileDto;
-import com.roomie.backend.controller.dto.UserRegisterDto;
 import com.roomie.backend.controller.dto.UserShortDto;
+import com.roomie.backend.controller.dto.request.RegisterRequest;
 import com.roomie.backend.dao.UserRepository;
-import com.roomie.backend.entity.User;
 import com.roomie.backend.exception.UserAlreadyExistsException;
+import com.roomie.backend.model.User;
 import com.roomie.backend.exception.UserNotFoundException;
 import com.roomie.backend.mapper.UserMapper;
 import com.roomie.backend.service.UserService;
@@ -29,16 +29,16 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public UserProfileDto createUser(UserRegisterDto userRegisterDto){
-        if (userRepository.findByEmail(userRegisterDto.getEmail()).isPresent()){
-            throw new UserAlreadyExistsException("User already exists!");
-        }
-
-        User user = UserMapper.toUserEntity(userRegisterDto);
-
-        return UserMapper.toUserProfileDto(userRepository.saveAndFlush(user));
-    }
+//    @Override
+//    public UserProfileDto createUser(RegisterRequest userRegisterDto){
+//        if (userRepository.findByEmail(userRegisterDto.getEmail()).isPresent()){
+//            throw new UserAlreadyExistsException("User already exists!");
+//        }
+//
+//        User user = UserMapper.toUserEntity(userRegisterDto);
+//
+//        return UserMapper.toUserProfileDto(userRepository.saveAndFlush(user));
+//    }
 
     @Override
     public UserProfileDto updateUser(Long id, UserProfileDto newUserInfo) {
