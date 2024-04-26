@@ -9,10 +9,13 @@ import com.roomie.backend.model.Role;
 import com.roomie.backend.model.User;
 import com.roomie.backend.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.logging.Logger;
 
 @Service
 @RequiredArgsConstructor
